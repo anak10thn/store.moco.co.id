@@ -1,0 +1,19 @@
+{
+  "name": "aksaramaya",
+  "version": "0.1.1",
+  "description": "Aksaramaya Homepage",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "3.2.5",
+    "superagent": "0.14.6",
+    "consolidate": "0.9.1",
+    "handlebars": "1.0.12"
+  },
+  "repository": "",
+  "author": "Ibnu Yahya",
+  "license": "MIT"
+}
+

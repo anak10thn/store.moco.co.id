@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Aksaramaya</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/foundation.css" />
+  <link rel="stylesheet" href="css/aksaramaya.css" />
+  <link rel="stylesheet" href="css/font-awesome.css" />
+
+  <script src="js/vendor/custom.modernizr.js"></script>
+
+</head>
+<body>
+  <nav class="top-bar">
+      <ul class="title-area">
+        <!-- Title Area -->
+        <li class="name">
+          <h1>
+            <a href="/">
+              <img src="img/logo.png">
+            </a>
+          </h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+ 
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <li>
+          <a href="/">BERANDA</a>
+        </li>
+        <li>
+          <a href="/about" class="menu-select">CERITA KAMI</a>
+        </li>
+        <li>
+          <a href="/product">PRODUK DAN LAYANAN</a>
+        </li>
+        <li>
+          <a href="https://readingsocially.wordpress.com" target="_blank">BLOG</a>
+        </li>
+        <li>
+          <a href="/contact">KONTAK KAMI</a>
+        </li>
+      </ul>
+    </section>
+  </nav>
+  <!--HEADER-->
+  <div class="about">
+    <div class="row">
+      <div class="large-7 columns our-story">
+        <h3 class="content-title">Cerita Kami</h3>
+        <img src="img/ourstory.png" style="margin-bottom:20px;">
+        {{#each about}}
+          <p>{{data}}</p>
+        {{/each}}
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      </div>
+      <div class="large-5 columns who-we-are">
+        <h3 class="content-title">Siapa Kami</h3>
+        <ul>
+          {{#each author}}
+            <li>
+              <img src="{{img}}">
+              <h3>{{name}}</h3>
+              <div class="pos">{{position}}</div>
+              <p>{{short_profile}} <a onclick="readMore({{id}})">Read More</a></p>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<div class="sp">
+  <div class="row">
+    <div class="large-6 columns">
+      <h3 class="content-title">Produk Dan Layanan</h3>
+    </div>
+  </div>
+  
+  <div class="row support">
+    <div class="large-4 columns elib" style="
+    padding-left: 20px;
+    padding-right: 20px;
+">
+      <center><img src="img/elib.png" class="spimg" /></center>
+      <h4><a href="/product#elib" target="_blank">e-Pustaka</a></h4>
+      <p>{{library}}</p>
+    </div>
+    
+    <div class="large-4 columns store" style="
+    padding-left: 20px;
+    padding-right: 20px;
+">
+      <center><img src="img/store.png" class="spimg" /></center>
+      <h4><a href="/product#store" target="_blank">e-Bookstore</a></h4>
+      <p>{{bookstore}}</p>
+    </div>
+    
+    <div class="large-4 columns moco" style="
+    padding-left: 20px;
+    padding-right: 20px;
+">
+      <center><img src="img/moco.png" class="spimg" /></center>
+      <h4><a href="/product#moco" target="_blank">Moco: <i>Reading Socially</i></a></h4>
+      <p>{{moco}}</p>
+    </div>
+  
+  </div>
+</div>
+
+  <div class="contact">
+    <div class="row">
+      <div class="large-4 columns">
+        <h3 class="content-title">Kontak Kami</h3>
+      </div>
+    </div>
+    <div class="row">
+      <form method="post" action="/">
+      <div class="large-6 columns">
+        <input type="text" placeholder="Name (Required)" name="name" id="name">
+        <input type="text" placeholder="Email (Required)" name="email" id="email">
+        <input type="text" placeholder="Subject (Required)" name="subject" id="subject">
+      </div>
+      <div class="large-6 columns">
+        <textarea style="height: 87px;" placeholder="Your Message..." name="message" id="message"></textarea>
+        <button type="submit" class="large button expand btn-aksara" style="
+        padding-top: 5px;
+        padding-bottom: 5px;
+        ">
+          <i class="icon-envelope-alt icon-2x"></i>
+        </button>
+      </div>
+    </form>
+    </div>
+  </div>
+
+<div class="footrow">
+  <footer class="row">
+    <div class="large-18 columns">
+      <div class="row">
+        <div class="large-10 columns">
+          <ul class="inline-list left footer-link">
+            <li >
+              <a href="/">BERANDA</a>
+            </li>
+            <li><a href="#">&bull;</a></li>
+            <li>
+              <a href="/about">CERITA KAMI</a>
+            </li>
+            <li><a href="#">&bull;</a></li>
+            <li>
+              <a href="/product">PRODUK DAN LAYANAN</a>
+            </li>
+            <li><a href="#">&bull;</a></li>
+            <li>
+              <a href="https://readingsocially.wordpress.com" target="_blank">BLOG</a>
+            </li>
+            <li><a href="#">&bull;</a></li>
+            <li>
+              <a href="/contact">KONTAK KAMI</a>
+            </li>
+          </ul>
+        </div>
+        <div class="large-2 columns copyright">
+          <p>Copyright &copy; Aksaramaya</p>
+          <p>All rights reserved</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<div id="who-more" class="reveal-modal">
+  <h3 class="data-name">Awesome. I have it.</h3>
+  <p class="lead"><i class="data-position">Your couch.  It is mine.</i></p>
+  <img src="" class="img-founder" style="border-radius:100%; width:150px; height:150px; float: left; margin-right:20px;">
+  <blockquote>
+    <p class="data-slogan">
+      Indonesians love to chat. We love to share. We are community driven as a culture.
+    </p>
+  </blockquote>
+  <p class="data-profile">Im a cool paragraph that lives inside of an even cooler modal. Wins</p>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+   
+  <script>
+  document.write('<script src=' +
+  ('__proto__' in {} ? 'js/vendor/zepto' : 'js/vendor/jquery') +
+  '.js><\/script>')
+  </script>
+  <script src="js/foundation/foundation.js"></script>
+  <script src="js/foundation/foundation.alerts.js"></script>
+  <script src="js/foundation/foundation.clearing.js"></script>
+  <script src="js/foundation/foundation.cookie.js"></script>
+  <script src="js/foundation/foundation.dropdown.js"></script>
+  <script src="js/foundation/foundation.forms.js"></script>
+  <script src="js/foundation/foundation.joyride.js"></script>
+  <script src="js/foundation/foundation.magellan.js"></script>
+  <script src="js/foundation/foundation.orbit.js"></script>
+  <script src="js/foundation/foundation.placeholder.js"></script>
+  <script src="js/foundation/foundation.reveal.js"></script>
+  <script src="js/foundation/foundation.section.js"></script>
+  <script src="js/foundation/foundation.tooltips.js"></script>
+  <script src="js/foundation/foundation.topbar.js"></script>
+  <script src="js/foundation/foundation.interchange.js"></script>
+  <script>
+    function getObjects(obj, key, val) 
+    {
+        var newObj = false; 
+        $.each(obj, function()
+        {
+            var testObject = this; 
+            $.each(testObject, function(k,v)
+            {
+                //alert(k);
+                if(val == v && k == key)
+                {
+                    newObj = testObject;
+                }
+            });
+        });
+
+        return newObj;
+    }
+    function readMore(id){
+      $.getJSON("content/index.json",function(data){
+        newObj = getObjects(data.content.author,"id",id);
+        $('.data-name').html(newObj.name);
+        $('.data-position').html(newObj.position);
+        $('.data-slogan').html(newObj.slogan);
+        $('.data-profile').html(newObj.profile);
+        $('.img-founder').attr('src',newObj.img);
+        $('#who-more').foundation('reveal', 'open');
+      });
+    }
+    $(document).foundation(function(){
+        function resizemenu(){
+          var scrn = parseInt($('.top-bar').css('width'));
+            if(scrn >= 1900){
+                $(".top-bar .title-area").css("margin-left","25%");
+                $(".top-bar-section").css("margin-right","25%");
+                $(".banner").css("margin-right",0);
+            }
+            else if(scrn <= 1102){
+                $(".top-bar .title-area").css("margin-left",0);
+                $(".top-bar-section").css("margin-right",0);
+                $(".banner").css("margin-right",0);
+            }
+            else{
+                $(".top-bar .title-area").css("margin-left",135);
+                $(".top-bar-section").css("margin-right",135);
+                $(".banner").css("margin-right",56);
+            }
+        }
+
+        resizemenu();
+        $(window).resize(function(){
+          resizemenu();
+        });
+    });
+  </script>
+</body>
+</html>

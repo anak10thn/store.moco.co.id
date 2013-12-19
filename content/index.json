@@ -1,0 +1,78 @@
+{
+    "content": {
+        "library": "Layanan e-Pustaka dari Aksaramaya menawarkan kemudahan bagi para mahasiswa/karyawan/pencinta buku sebagai anggota perpustakaan maya untuk mengakses koleksi e-Book tanpa batas ruang dan waktu.",
+        "bookstore": "Memilih dan mengoleksi buku yang dapat dilakukan kapan saja dengan harga terjangkau merupakan terobosan layanan e-Commerce dari Aksaramaya.",
+        "moco": "Jendela untuk masuk ke dalam ekosistem bagi komunitas pencinta buku. Moco tersedia untuk berbagai mobile devices dan multiplatform seperti Android, iOS dan hybrid. ",
+        
+        "library-full": "Adalah sebuah layanan dari Aksaramaya yang bermitra dengan universitas-universitas di seluruh Indonesia. e-Pustaka menawarkan kemudahan bagi para mahasiswa sebagai anggota dari perpustakaan dalam mengakses koleksi yang mereka miliki di mana saja dan kapan saja.",
+        "bookstore-full": "Adalah sebuah akses untuk melakukan pembelian eBook yang terdapat pada Aksaramaya. e-Bookstore ini memberikan kemudahan akses bagi para pembaca untuk memilih buku favoritnya dengan mudah dan harga yang terjangkau. Para pembaca nantinya dapat mencari buku di e-Bookstore berdasarkan genre buku yang mereka inginkan. Layanan ini dapat diakses melalui aplikasi Moco.",
+        "moco-full": "Moco adalah sebuah platform media sosial untuk mengakses e-Bookstore & e-Pustaka, membangun jaringan/komunitas sesama pembaca, dan juga tentunya sebagai e-Reader untuk membaca eBook. Moco nantinya dapat diunduh dan diakses di berbagai medium perangkat mulai dari desktop dan PC berbasis situs (web-based),  netbook dan tab  based hybrid (tab-base application), dan mobile (smartphone-based application).",
+        
+        "about": [
+{"data":"Aksaramaya tidak dimulai dengan mimpi yang muluk-muluk, tidak juga dengan modal yang berlimpah. Aksaramaya dimulai dengan satu keinginan agar membaca menjadi lebih hip, mudah, praktis, fleksibel, dan terjangkau bagi semua orang."},
+{"data":"Keinginan ini menjadi semakin besar melihat berkembangnya dunia digital di Indonesia. Penggunaan sosial media sebagai gaya hidup dan kebutuhan dalam berinteraksi memberikan inspirasi bagi Aksaramaya untuk menawarkan pengalaman baru dalam membaca, melalui platform sosial media berbasis e-book. Pemanfaatan sosial media dalam e-Book akan meningkatkan minat baca, karena memungkinkan adanya interaksi sesama pembaca."},
+{"data":"e-Reader Moco dapat digunakan untuk berbagi cerita, komentar, ulasan, catatan dan rekomendasi antara pembaca maupun penulis. Moco juga digunakan untuk meminjam e-Book dalam perpustakaan maya (e-Pustaka) atau memilih dan membeli koleksi e-Book di toko buku virtual (e-Bookstore). "},
+{"data":"Melalui Moco, kami hadir menawarkan pengalaman baru dalam membaca buku, membaca tidak harus dinikmati sendiri… Reading Socially."},
+{"data":"Punya keinginan yang sama? Jangan ragu untuk gabung bersama kami. Let's work together!"}
+],
+    	"welcome": "Revolusi digital telah mengubah proses adaptasi pengetahuan dari manusia. Aksaramaya melakukan terobosan dalam gaya hidup baca di masyarakat.",
+        "author": [
+            {
+            "id":"0",
+            "img":"img/founder/panya.jpg",
+            "name":"Panya M. Siregar",
+            "position":"Chairman acting as Chief Marketing Officer",
+            "slogan":"“Seriously passionate about pursuing interests”",
+            "short_profile":"Begitulah pria kelahiran Bangkok ini mendeskripsikan dirinya. Berbekal gelar SarjanaMarketing & Entepreneurship Studiesdari Babson College, di Amerika Serikat.",
+            "profile":"Begitulah pria kelahiran Bangkok ini mendeskripsikan dirinya. Berbekal gelar Sarjana Marketing & Entepreneurship Studies dari Babson College, di Amerika Serikat, ia mengawali profesinya di perusahaan multinasional hingga terakhir menduduki posisi sebagai Head of Business Development di sebuah perusahaan investasi nasional dengan portfolio usaha di industri perkapalan, eksplorasi minyak dan gas bumi, serta perdagangan petrokimia. Panya melihat kunci sukses berusaha sebagai gabungan dari kekuatan intuisi, ketekunan,dan keberuntungan. Berangkat dengan team-work spirit, ia membawa passionnya untuk turut membangun Aksaramaya."
+            },
+            {
+            "id":"1",
+            "img":"img/founder/lasmo.jpg",
+            "name":"Sulasmo Sudharno",
+            "position":"Chief Executive Officer",
+            "slogan":"“Saya pemuda daerah yang bermimpi memindahkan Monas”",
+            "short_profile":"Lasmo adalah salah satu penentu kekuatan Aksaramaya. Filosofi Lasmo membangun entitas bisnis adalah selalu memiliki kejujuran dan melakukan yang terbaik dalam segala hal.",
+            "profile":"Lasmo adalah salah satu penentu kekuatan Aksaramaya. Filosofi Lasmo membangun entitas bisnis adalah selalu memiliki kejujuran dan melakukan yang terbaik dalam segala hal. Di usia muda ia telah berhasil mendirikan sebuah perusaah berbasis manajemen sistem informasi yang bergerak di bidang Accounting dan Payroll Service Provider. Pemuda kelahiran Kisaran ini memiliki basis pendidikan Sarjana Ekonomi di Univesitas Widya Gama, Malang. Dengan bermodalkan filosofi bisnis, “Pengusaha yang santun”, Lasmo beserta keempat mitranya membangun Aksaramaya."
+            },
+            {
+            "id":"2",
+            "img":"img/founder/ardi.png",
+            "name":"Ardiansyah",
+            "position":"Chief Production Officer",
+            "slogan":"“Passionate man with realistic insight”",
+            "short_profile":"Ardiansyah adalah sosok yang tidak asing di industri teknologi informasi terutama di bidang software dan penerbitan buku. Ia memulai karir sebagai penulis sejak tahun 2000-an.",
+            "profile":"Ardiansyah adalah sosok yang tidak asing di industri teknologi informasi terutama di bidang software dan penerbitan buku. Ia memulai karir sebagai penulis sejak tahun 2000-an. Selang tiga tahun kemudian bekerja sebagai Dosen di salah satu perguruan tinggi swasta ternama di Yogyakarta. Di tahun 2004 mulai masuk ke industri buku dengan mendirikan penerbit Ardi Publishing, Quranic Media Pustaka dan Renaissance Pustaka. Kemudian dilanjutkan pada tahun 2007 merambah industri software dengan mendirikan Metasoft Technologies dengan produk MyFamily Accounting yang sempat fenomenal di industri personal finance Indonesia. Sadar memiliki background, pengalaman dan passion yang unik yaitu di industri buku/penerbitan dan juga IT/software, maka ia pun turut membidani kehadiran Aksaramaya dan semakin memperkokoh tim manajemen yang sudah ada."
+            },
+            {
+            "id":"3",
+            "img":"img/founder/gambit.jpg",
+            "name":"Dario Gambit Fauri",
+            "position":"Chief Digital Officer (CDO)",
+            "slogan":"“Listen, Plan, Action”",
+            "short_profile":"Pria kelahiran tahun 1979 memiliki motto hidup belajar dari hidup ini bergabung memperkuat tim digital aksaramaya.",
+            "profile":"Pria kelahiran tahun 1979 memiliki motto hidup belajar dari hidup ini bergabung memperkuat tim digital aksaramaya. Di usianya yang ke27 dia sudah mendirikan sebuah usaha digital bernama Casanumedia yang telah berdiri di tahun 2006. Sebagai Chief Digital Officer, Gambit adalah orang yang bertanggung jawab kepada keseluruhan proses User Experience dan Social Media Experience pengguna Moco yang merupakakan produk inti dari Aksaramaya."
+            }
+            ,
+            {
+            "id":"4",
+            "img":"img/founder/gani.png",
+            "name":"Gani",
+            "position":"Chief Technology Officer (CTO)",
+            "slogan":"“20 tahun di IT dan akan tetap di dunia yang sama 20 tahun mendatang“",
+            "short_profile":"Gani, pria kelahiran Tanjung Pinang, 44 tahun yang silam ini berperan penting dalam menghandle seluruh infrastructure dari Aksaramaya. Sebagai Chief Technology Officer.",
+            "profile":"Gani, pria kelahiran Tanjung Pinang, 44 tahun yang silam ini berperan penting dalam menghandle seluruh infrastructure dari Aksaramaya. Sebagai Chief Technology Officer, pria yang lulusan Universitas Bunda Mulia ini optimis Aksaramaya merupakan budaya baru membaca di Indonesia karena mudah, murah, nyaman dan lengkap."
+            },
+            {
+            "id":"5",
+            "img":"img/founder/nanda.jpg",
+            "name":"Nanda Ivens",
+            "position":"Technical Advisor",
+            "slogan":"“Indonesians love to chat. We love to share. We are community driven as a culture.”",
+            "short_profile":"Berbekal karir selama 17 tahun, Nanda, panggilan memiliki passion dalam bidang Publishing dengan prestasi menaikkan revenue sebesar 200% di bisnis dot com The Economist. Lulusan sarjana ilmu politik, dari Boston University.",
+            "profile":"Berbekal karir selama 17 tahun, Nanda, panggilan memiliki passion dalam bidang Publishing dengan prestasi menaikkan revenue sebesar 200% di bisnis dot com The Economist. Lulusan sarjana ilmu politik, dari Boston University, melanglang buana dari agensi hingga sekarang membantu Aksaramaya dalam mendirikan roda bisnisnya."
+            }
+        ]
+
+    }
+}
