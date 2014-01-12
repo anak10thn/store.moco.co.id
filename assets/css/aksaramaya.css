@@ -65,6 +65,7 @@
 /*end fonts config*/
 body{
     font-family: 'signikaregular';
+    letter-spacing:1px;
 }
 
 /*book slider*/
@@ -479,12 +480,12 @@ body{
     -moz-border-radius: 3px; 
     border-radius: 3px;
     border:0;
-	padding:10px;
+	padding:5px;
 	font-size:0.9em;
 	font-family:Arial, sans-serif;
 	color:#aaa;
 	border:solid 1px #ccc;
-	margin:0 0 20px;
+	margin:6px 0 20px 0;
 	width:300px;
 }
 
@@ -671,6 +672,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 h3.title-slide{
     font-family: 'signikaregular';
     color:#d7254a;
+}
+
+h3.title-content{
+    font-family: 'signikaregular';
+    color:#fff;
 }
 
 h4.foot{

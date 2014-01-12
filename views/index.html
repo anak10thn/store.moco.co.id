@@ -75,14 +75,14 @@
                 </a>
               <ul class="dropdown-menu right" style="padding:17px; border-radius:6px;color:#333">
                     <li>
-                        <form method="post" action="/wp-login.php" id="navloginform" name="loginform">
-                            <label>Username<br>
-                            <input type="text" tabindex="10" size="30" value="" class="input" id="user_login" name="log"></label>
-                            <label>Password<br>
-                            <input type="password" tabindex="20" size="30" value="" class="input" id="user_pass" name="pwd"></label>
-                            <label><input type="checkbox" tabindex="90" value="forever" id="rememberme" name="rememberme"> Remember Me</label> 
+                        <form method="post" action="" id="navloginform" name="loginform">
+                            <label>
+                            <input type="text" placeholder="Username Or Email" tabindex="10" size="30" value="" class="input" id="user_login" name="log"></label>
+                            <label style="margin-top:10px;">
+                            <input type="password" placeholder="Password"  tabindex="20" size="30" value="" class="input" id="user_pass" name="pwd"></label>
+                            <label style="width:100px;">Forgot your password?</label> 
                             <input type="submit" tabindex="100" value="SIGN IN" class="btn btn-ak-primary" style="float:right" id="wp-submit" name="wp-submit">
-                            <input type="hidden" value="/wp-admin/" name="redirect_to">
+                            <input type="hidden" value="" name="redirect_to">
                         </form>       
                     </li>
                 </ul>
@@ -95,9 +95,16 @@
 
     <div class="bigboobs">
       <div class="container">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
+        <div class="row">
+            <div class="col-md-8">
+                <h1 style="font-family:'roboto_condensedregular';letter-spacing:2px;margin-top:100px;">TOKO BUKU DIGITAL MOCO</h1>
+                <p>Membaca buku digital Indonesia pada platform media sosial.</p>
+            </div>
+            <div class="col-md-4">
+                <h3 class="title-content">Sign Up</h3>
+                <p>Create your account.</p>
+            </div>
+        </div>
       </div>
     </div>
 <div class="container">
@@ -230,14 +237,20 @@
                 Blok A 4 - 5 Kebayoran Baru.<br>
                 Jakarta 12120 Indonesia
                 </h5>
+                <h4 class="foot">Find Us Here</h4>
+                <h5 class="foot" style="color:#fff">
+                    <a href="#"><img src="img/FB.png"></a>
+                    <a href="#" style="margin-left:10px;"><img src="img/Tw.png"></a>
+                    <a href="#" style="margin-left:10px;"><img src="img/Wp.png"></a>
+                </h5>
             </div>
         </div>
     </div>
 </footer>
-<div style="margin:0;background:#000;color:#fff">
-    <div class="container">
-        <div class="col-md-10">
-            <p>&copy; Company 2013</p>
+<div style="margin:0;background:#000;color:#bcbebf;height: 50px;">
+    <div class="container" style="height: 50px;">
+        <div class="col-md-10 table-div" style="margin:0;height: 50px;">
+            <p style="margin:0;" class="table-cell">&copy; PT. Woolu AKsaramaya 2013. All Right Reversed.</p>
         </div>
     </div>
 </div>
