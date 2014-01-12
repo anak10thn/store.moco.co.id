@@ -26,12 +26,12 @@ app.get('/',function(req, res){
   })
 })
 
-app.get('/about',function(req, res){
+app.get('/category',function(req, res){
   var url_data = "http://localhost:"+port+"/content/index.json";
   superagent.get(url_data)
     .set({  Accept: 'application/json' })
     .end(function(e, storifyResponse){  
-      return res.render('about',storifyResponse.body.content);   
+      return res.render('category',storifyResponse.body.content);   
     })
 
 })

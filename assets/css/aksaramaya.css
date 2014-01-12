@@ -65,10 +65,20 @@ body{
     letter-spacing:1px;
 }
 
+a{
+    color:#333;   
+}
+
 /*book slider*/
 .slider    { overflow:hidden; position:relative; }
 .slider ul { margin:0; padding:0 0 0 4px;}
-.slider li { float:left; margin:10px 16px 10px 0px; list-style:none; }
+.slider li { float:left; margin:10px 16px 10px 0; list-style:none; }
+
+/*thumb book*/
+.thumb-book    { overflow:hidden; position:relative; padding: 0 0 0 70px; }
+.thumb-book ul { margin:0; padding:0;}
+.thumb-book li { float:left; margin:20px 30px 10px 0; list-style:none; }
+
 /* IE6 issues */
 .slider ul { width:100%;}
 
@@ -539,7 +549,7 @@ ul.dropdown-menu{
     background: rgba(238, 238, 238, 1);
 }
 
-ul.dropdown-menu:before {
+ul.dropdown-menu.menu-category:before {
     content: '';
     display: inline-block;
     border-left: 7px solid transparent;
@@ -551,7 +561,7 @@ ul.dropdown-menu:before {
     left: 9px;
 }
 
-ul.dropdown-menu.right:before {
+ul.dropdown-menu.menu-login:before {
     content: '';
     display: inline-block;
     border-left: 7px solid transparent;
