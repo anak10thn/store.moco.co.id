@@ -1,7 +1,13 @@
-home = (function(){
+book = (function(){
     return{
-        book_slider : function(value){
-           $(value).lemmonSlider({'infinite' : true});
+        slider : function(value){
+            $(value).lemmonSlider({'infinite' : true});
+        },
+        prev : function(value){
+            $(value).trigger('prevPage');   
+        },
+        next : function(value){
+            $(value).trigger('nextPage');   
         }
     }
 })();

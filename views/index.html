@@ -13,6 +13,7 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/aksaramaya.css" rel="stylesheet">
+    <!--<link href="fonts-em/fonts-em.css" rel="stylesheet">-->
     <link href="css/font-awesome.min.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -101,17 +102,12 @@
     </div>
 <div class="container">
     <div class="row">
-        <div class="col-md-1">
-
-        </div>
         <div class="col-md-4">
-            <h3>Recommended</h3>
+            <h3 class="title-slide">REKOMENDASI</h3>
         </div>
     </div>
       <div class="row">
-        <div class="col-md-1">
-        </div>
-        <div class="col-md-10">
+        <div class="col-md-12">
             <div id="slider1" class="slider">
                 <ul>
                     <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
@@ -130,25 +126,21 @@
                     <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
                     <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
                     <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    
                 </ul>
             </div>
+            <div class="bkn bkn-prev" onclick="book.prev('#slider1')"></div>
+            <div class="bkn bkn-next" onclick="book.next('#slider1')"></div>
+            <hr style="margin-bottom:0px">
       </div>
     </div>
-    <hr style="margin-bottom:0px">
-
+    
     <div class="row">
-        <div class="col-md-1">
-
-        </div>
         <div class="col-md-4">
-            <h3>Recommended</h3>
+            <h3 class="title-slide">POPULER</h3>
         </div>
     </div>
       <div class="row">
-        <div class="col-md-1">
-        </div>
-        <div class="col-md-10">
+        <div class="col-md-12">
             <div id="slider2" class="slider">
                 <ul>
                     <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
@@ -170,21 +162,19 @@
 
                 </ul>
             </div>
+            <div class="bkn bkn-prev" onclick="book.prev('#slider2')"></div>
+            <div class="bkn bkn-next" onclick="book.next('#slider2')"></div>
+            <hr style="margin-bottom:0px">
       </div>
     </div>
-    <hr style="margin-bottom:0px">
+    
     <div class="row">
-        <div class="col-md-1">
-
-        </div>
         <div class="col-md-4">
-            <h3>Recommended</h3>
+            <h3 class="title-slide">BUKU GRATIS</h3>
         </div>
     </div>
       <div class="row">
-        <div class="col-md-1">
-        </div>
-        <div class="col-md-10">
+        <div class="col-md-12">
             <div id="slider3" class="slider">
                 <ul>
                     <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
@@ -206,44 +196,60 @@
 
                 </ul>
             </div>
+            <div class="bkn bkn-prev" onclick="book.prev('#slider3')"></div>
+            <div class="bkn bkn-next" onclick="book.next('#slider3')"></div>
       </div>
     </div>
-
 </div>
 <footer class="footer-shadow">
     <div class="container">
         <div class="row">
-            <div class="col-md-1">
+            <div class="col-md-3">
+                <h4 class="foot">About Us</h4>
+                <a href="#"><h5 class="foot">Who we are?</h5></a>
+                <a href="#"><h5 class="foot">Product & services</h5></a>
+                <a href="#"><h5 class="foot">Contact us</h5></a>
             </div>
-            <div class="col-md-10">
-                <p>&copy; Company 2013</p>
+            <div class="col-md-3">
+                <h4 class="foot">Legal</h4>
+                <a href="#"><h5 class="foot">Terms & Conditions</h5></a>
+                <a href="#"><h5 class="foot">Privacy</h5></a>
+                <a href="#"><h5 class="foot">Copyright</h5></a>
+            </div>
+            <div class="col-md-3">
+                <h4 class="foot">Get Moco App</h4>
+                <a href="#"><h5 class="foot"><img src="img/android.png"></h5></a>
+                <a href="#"><h5 class="foot"><img src="img/ios.png"></h5></a>
+                <a href="#"><h5 class="foot"><img src="img/desktop.png"></h5></a>
+            </div>
+            <div class="col-md-3">
+                <h4 class="foot">Address</h4>
+                <h5 class="foot" style="color:#fff"><b>Wisma Iskandarsyah</b></h5>
+                <h5 class="foot" style="line-height:1.5;">
+                Iskandarsyah Raya Kav 12 - 14<br>
+                Blok A 4 - 5 Kebayoran Baru.<br>
+                Jakarta 12120 Indonesia
+                </h5>
             </div>
         </div>
     </div>
 </footer>
 <div style="margin:0;background:#000;color:#fff">
     <div class="container">
-        <div class="col-md-1">
-            </div>
-            <div class="col-md-10">
-                <p>&copy; Company 2013</p>
-            </div>
+        <div class="col-md-10">
+            <p>&copy; Company 2013</p>
         </div>
     </div>
 </div>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.min.js"></script>
+<script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/lemmon-slider.js"></script>
     <script src="js/aksaramaya.js"></script>
     <script>
         $(document).ready(function(){
-            home.book_slider('#slider1');
-            home.book_slider('#slider2');
-            home.book_slider('#slider3');
+            book.slider('div#slider1');
+            book.slider('div#slider2');
+            book.slider('div#slider3');
         });  
     </script>
   </body>
