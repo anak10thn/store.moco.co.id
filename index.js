@@ -4,7 +4,7 @@ var superagent = require('superagent');
 var consolidate = require('consolidate');
 
 //app
-var port = 8080;
+var port = 6969;
 var app = express();
 
 //Configure tempate engine
