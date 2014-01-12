@@ -10,19 +10,6 @@
 
 
 @font-face {
-    font-family: 'roboto_condensedbold';
-    src: url('../fonts-em/robotocondensed-bold-webfont.eot');
-    src: url('../fonts-em/robotocondensed-bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts-em/robotocondensed-bold-webfont.woff') format('woff'),
-         url('../fonts-em/robotocondensed-bold-webfont.ttf') format('truetype'),
-         url('../fonts-em/robotocondensed-bold-webfont.svg#roboto_condensedbold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-
-@font-face {
     font-family: 'roboto_condensedregular';
     src: url('../fonts-em/robotocondensed-regular-webfont.eot');
     src: url('../fonts-em/robotocondensed-regular-webfont.eot?#iefix') format('embedded-opentype'),
@@ -35,7 +22,17 @@
 }
 
 
+@font-face {
+    font-family: 'signikalight';
+    src: url('../fonts-em/signika-light-webfont.eot');
+    src: url('../fonts-em/signika-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts-em/signika-light-webfont.woff') format('woff'),
+         url('../fonts-em/signika-light-webfont.ttf') format('truetype'),
+         url('../fonts-em/signika-light-webfont.svg#signikalight') format('svg');
+    font-weight: normal;
+    font-style: normal;
 
+}
 
 @font-face {
     font-family: 'signikabold';
@@ -64,7 +61,7 @@
 
 /*end fonts config*/
 body{
-    font-family: 'signikaregular';
+    font-family: 'signikalight';
     letter-spacing:1px;
 }
 
@@ -489,6 +486,26 @@ body{
 	width:300px;
 }
 
+.form-control{
+    -webkit-border-radius: 2px; 
+    -moz-border-radius: 2px; 
+    border-radius: 2px;
+    background: rgba(255,255,255,.8);
+    color:#000;
+}
+/*.form-control::-webkit-input-placeholder { 
+    color:    #fff;
+}
+.form-control:-moz-placeholder {
+    color:    #fff;
+}
+.form-control::-moz-placeholder {
+    color:    #fff;
+}
+.form-control:-ms-input-placeholder {
+    color:    #fff;
+}*/
+
 .table-div{
     display: table;
     overflow:hidden;   
@@ -632,6 +649,51 @@ fieldset[disabled] .btn-ak-primary:hover,
 fieldset[disabled] .btn-ak-primary:focus,
 fieldset[disabled] .btn-ak-primary:active,
 fieldset[disabled] .btn-ak-primary.active {
+  background-color: #24B9CF;
+  border-color: #24B9CF;
+}
+
+
+/*btn ak primary*/
+.btn-ak-red {
+    background: #de0035;
+    padding: 5px 11px 7px;
+    border:1px solid #b7193c;
+    cursor:pointer;
+    font-size:1.1em;
+    font-family:Oswald, sans-serif; 
+    letter-spacing:.1em;
+    text-shadow: 0 -1px 0px rgba(0, 0, 0, 0.3); 
+    color: #fff;
+    -webkit-box-shadow: inset 0px 1px 0px #de0035, 0px 3px 0px 0px #881e2e, 0px 5px 2px #999;
+    -moz-box-shadow: inset 0px 1px 0px #de0035, 0px 3px 0px 0px #b7193c, 0px 5px 2px #999;
+    box-shadow: inset 0px 1px 0px #de0035, 0px 3px 0px 0px #b7193c, 0px 5px 2px #999;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+.btn-ak-red:hover,
+.btn-ak-red:focus,
+.btn-ak-red:active,
+.btn-ak-red.active {
+  color:#fff;
+-webkit-box-shadow: inset 0px 1px 0px #de0035, 0px 2px 0px 0px #881e2e, 0px 2px 5px #999;
+-moz-box-shadow: inset 0px 1px 0px #de0035, 0px 2px 0px 0px #b7193c, 0px 2px 5px #999;
+box-shadow: inset 0px 1px 0px #de0035, 0px 2px 0px 0px #b7193c, 0px 2px 5px #999;
+
+}
+.btn-ak-red.disabled:hover,
+.btn-ak-red.disabled:focus,
+.btn-ak-red.disabled:active,
+.btn-ak-red.disabled.active,
+.btn-ak-red[disabled]:hover,
+.btn-ak-red[disabled]:focus,
+.btn-ak-red[disabled]:active,
+.btn-ak-red[disabled].active,
+fieldset[disabled] .btn-ak-red:hover,
+fieldset[disabled] .btn-ak-red:focus,
+fieldset[disabled] .btn-ak-red:active,
+fieldset[disabled] .btn-ak-red.active {
   background-color: #24B9CF;
   border-color: #24B9CF;
 }
