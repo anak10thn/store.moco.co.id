@@ -1,27 +1,17 @@
 //module
-var express = require('express');
-var superagent = require('superagent');
-var consolidate = require('consolidate');
-var engine = require('ejs-locals');
+var express = require('express'),
+    superagent = require('superagent'),
+    consolidate = require('consolidate'),
+    engine = require('ejs-locals');
 
 //app
 var port = 6969;
 var app = module.exports = express();
-
+var base_url = 'http://store.aksaramaya.com/apis';
 //routes
 
-require('./routes/routes.js')(app,port,superagent);
+require('./routes/routes.js')(app,port,superagent,base_url);
 
-//Configure tempate engine
-//app.configure(function(){
-//    //app.engine('html', consolidate.handlebars);
-//    //app.set('view engine', 'html');
-//    app.set('view engine', 'ejs');
-//    app.set('views', __dirname + '/views');
-//    app.use(express.bodyParser());
-//    app.use(express.methodOverride());
-//    app.use(app.router);
-//});
 app.configure(function(){
     app.set('views', __dirname + '/views');
     app.engine('ejs', engine);
