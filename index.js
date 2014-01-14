@@ -2,59 +2,36 @@
 var express = require('express');
 var superagent = require('superagent');
 var consolidate = require('consolidate');
+var engine = require('ejs-locals');
 
 //app
 var port = 6969;
-var app = express();
+var app = module.exports = express();
+
+//routes
+
+require('./routes/routes.js')(app,port,superagent);
 
 //Configure tempate engine
-app.engine('html', consolidate.handlebars);
-app.set('view engine', 'html');
-app.set('views', __dirname + '/views');
-
-//app.use(express.static(__dirname + '/public'));
-app.use(express.static(__dirname + '/assets'));
-app.use("/content",express.static(__dirname+'/content'));
-
-
-app.get('/',function(req, res){
-  var url_data = "http://localhost:"+port+"/content/index.json";
-  superagent.get(url_data)
-    .set({  Accept: 'application/json' })
-    .end(function(e, storifyResponse){  
-       return res.render('index',storifyResponse.body.content);
-  })
-})
-
-app.get('/category',function(req, res){
-  var url_data = "http://localhost:"+port+"/content/index.json";
-  superagent.get(url_data)
-    .set({  Accept: 'application/json' })
-    .end(function(e, storifyResponse){  
-      return res.render('category',storifyResponse.body.content);   
-    })
-
-})
-
-app.get('/contact',function(req, res){
-  var url_data = "http://localhost:"+port+"/content/index.json";
-  superagent.get(url_data)
-    .set({  Accept: 'application/json' })
-    .end(function(e, storifyResponse){  
-      return res.render('contact',storifyResponse.body.content);   
-    })
-
-})
-
-app.get('/product',function(req, res){
-  var url_data = "http://localhost:"+port+"/content/index.json";
-  superagent.get(url_data)
-    .set({  Accept: 'application/json' })
-    .end(function(e, storifyResponse){  
-      return res.render('product',storifyResponse.body.content);   
-    })
-
-})
+//app.configure(function(){
+//    //app.engine('html', consolidate.handlebars);
+//    //app.set('view engine', 'html');
+//    app.set('view engine', 'ejs');
+//    app.set('views', __dirname + '/views');
+//    app.use(express.bodyParser());
+//    app.use(express.methodOverride());
+//    app.use(app.router);
+//});
+app.configure(function(){
+    app.set('views', __dirname + '/views');
+    app.engine('ejs', engine);
+    app.set('view engine', 'ejs');
+    app.use(express.bodyParser());
+    app.use(express.methodOverride());
+    app.use(app.router);
+    app.use(express.static(__dirname + '/assets'));
+    app.use("/content",express.static(__dirname+'/content'));
+});
 
 app.listen(port);
 console.log("access aksaramaya miniserver http://hostname:"+port); 
