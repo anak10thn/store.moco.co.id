@@ -40,23 +40,8 @@
       <div class="row">
         <div class="col-md-12">
             <div id="slider1" class="slider">
-                <ul>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
+                <ul id="recommended">
+                    <li class="book-shadow"><img src="" alt=""></li>
                 </ul>
             </div>
             <div class="bkn bkn-prev" onclick="book.prev('#slider1')"></div>
@@ -73,24 +58,8 @@
       <div class="row">
         <div class="col-md-12">
             <div id="slider2" class="slider">
-                <ul>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-
+                <ul id="popular">
+                    <li class="book-shadow"><img src="" alt=""></li>
                 </ul>
             </div>
             <div class="bkn bkn-prev" onclick="book.prev('#slider2')"></div>
@@ -107,24 +76,8 @@
       <div class="row">
         <div class="col-md-12">
             <div id="slider3" class="slider">
-                <ul>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-
+                <ul id="newbook">
+                    <li class="book-shadow"><img src="" alt=""></li>
                 </ul>
             </div>
             <div class="bkn bkn-prev" onclick="book.prev('#slider3')"></div>
@@ -132,14 +85,53 @@
       </div>
     </div>
 </div>
+<script src="js/angular.min.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/lemmon-slider.js"></script>
 <script src="js/aksaramaya.js"></script>
 <script>
     $(document).ready(function(){
-        book.slider('div#slider1');
-        book.slider('div#slider2');
-        book.slider('div#slider3');
+        //recommended book
+        book.json({
+            url : base_url+"/books/global_recommended?client_id="+client+"&limit=10",
+            type : "GET",
+            dataType : "json"
+        }).success(function(data){
+            var html = "";
+            $.each(data.data,function(){
+                html += '<li class="book-shadow"><img src="'+this.Book.cover+'" alt=""></li>';
+            });
+            $('#recommended').html(html);
+            book.slider('div#slider1');
+        });
+        
+        //popular
+        book.json({
+            url : base_url+"/books/global_recommended?client_id="+client+"&limit=10",
+            type : "GET",
+            dataType : "json"
+        }).success(function(data){
+            var html = "";
+            $.each(data.data,function(){
+                html += '<li class="book-shadow"><img src="'+this.Book.cover+'" alt=""></li>';
+            });
+            $('#popular').html(html);
+            book.slider('div#slider2');
+        });
+        
+        //newbook
+        book.json({
+            url : base_url+"/books/newbooks?client_id="+client+"&limit=10",
+            type : "GET",
+            dataType : "json"
+        }).success(function(data){
+            var html = "";
+            $.each(data.data,function(){
+                html += '<li class="book-shadow"><img src="'+this.Book.cover+'" alt=""></li>';
+            });
+            $('#newbook').html(html);
+            book.slider('div#slider3');
+        });
     }); 
 </script>

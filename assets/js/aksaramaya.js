@@ -1,3 +1,6 @@
+var base_url = 'http://store.aksaramaya.com/apis';
+var client = 'NTEwMzg4M2IxYjdjM2M3';
+
 book = (function(){
     return{
         slider : function(value){
@@ -8,6 +11,9 @@ book = (function(){
         },
         next : function(value){
             $(value).trigger('nextPage');   
+        },
+        json : function(data){
+            return $.ajax(data);   
         }
     }
 })();
