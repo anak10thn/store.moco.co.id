@@ -66,24 +66,34 @@
               <a href="#" class="dropdown-toggle " data-toggle="dropdown">
                   <div class="table-div" style="height:100%;">
                       <div class="table-cell" style="padding-right:10px;">
-                          Sign In
+                          <% 
+                            if(user.name){%>
+                                <%=user.name%>
+                            <%} else {
+                            %>
+                            Sign In
+                          <%}%>
                       </div>
-                      <div class="avatar-frame"><img src="img/avatar.jpg"></div>
+                      <div class="avatar-frame"><img src="
+                        img/avatar.jpg
+                        "></div>
                   </div>
                 </a>
+            <% if(!login.access_token){%>
               <ul class="dropdown-menu menu-login" style="padding:17px; border-radius:6px;color:#333">
                     <li>
-                        <form method="post" action="" id="navloginform" name="loginform">
+                        <form method="post" action="/login" id="navloginform" name="loginform">
                             <label>
-                            <input type="text" placeholder="Username Or Email" tabindex="10" size="30" value="" class="input" id="user_login" name="log"></label>
+                            <input type="text" name="username" id="username" placeholder="Username Or Email" tabindex="10" size="30" value="" class="input" id="user_login" name="log"></label>
                             <label style="margin-top:10px;">
-                            <input type="password" placeholder="Password"  tabindex="20" size="30" value="" class="input" id="user_pass" name="pwd"></label>
+                            <input type="password" name="password" id="password" placeholder="Password"  tabindex="20" size="30" value="" class="input" id="user_pass" name="pwd"></label>
                             <label style="width:100px;">Forgot your password?</label> 
                             <input type="submit" tabindex="100" value="SIGN IN" class="btn btn-ak-primary" style="float:right" id="wp-submit" name="wp-submit">
                             <input type="hidden" value="" name="redirect_to">
                         </form>       
                     </li>
                 </ul>
+             <%}%>
             </li>
           </ul>
             

@@ -1,4 +1,5 @@
 <!--<% layout('masterpage') -%>-->
+
     <div class="bigboobs">
       <div class="container">
         <div class="row">
@@ -12,20 +13,20 @@
             <div class="col-md-4">
                 <h3 class="title-content">Sign Up</h3>
                 <p>Create your account.</p>
-                <form role="form">
+                <form role="form" method="post" id="signup">
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Full Name">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" required>
                   </div>
                   <div class="form-group">
-                    <input type="email" id="email" class="form-control" placeholder="Your email" required>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Your email" required>
                   </div>
                   <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password">
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
                   </div>
                   <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Retype Password">
+                    <input type="password" id="repassword" name="repassword" class="form-control" placeholder="Retype Password" required>
                   </div>
-                  <button type="submit" class="btn btn-ak-red pull-right">Submit</button>
+                  <button type="submit" class="btn btn-ak-red pull-right" id="btn-signup"><i id="signup-proc" class=""></i> Submit</button>
                 </form>
             </div>
         </div>
@@ -104,6 +105,34 @@
 <script src="js/aksaramaya.js"></script>
 <script>
     $(document).ready(function(){
+        $("form#signup").submit(function(){
+            book.json({
+                url : "/signup",
+                type : "POST",
+                data : $("#signup").serialize(),
+                beforeSend: function(){
+                    $('#signup-proc').addClass('fa fa-refresh fa-spin');
+                }
+            })
+            .success(function(data){
+                var dt = JSON.parse(data);
+                if(dt.meta.code == 200){
+                    alert(dt.meta.confirm);   
+                }
+                else{
+                    var m_error = dt.meta.error_message;
+                    if(m_error.length > 0){
+                        var error = m_error.join(",");
+                    }
+                    else {
+                        var error = m_error;
+                    }
+                    alert(error);
+                }
+                $('#signup-proc').removeClass('fa fa-refresh fa-spin');
+            });
+            return false;
+        })
         //recommended book
         book.json({
             url : base_url+"/books/global_recommended?client_id="+client+"&limit=10",
