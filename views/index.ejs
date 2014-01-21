@@ -17,7 +17,7 @@
                     <input type="text" class="form-control" placeholder="Full Name">
                   </div>
                   <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Your email">
+                    <input type="email" id="email" class="form-control" placeholder="Your email" required>
                   </div>
                   <div class="form-group">
                     <input type="password" class="form-control" placeholder="Password">
@@ -32,22 +32,27 @@
       </div>
     </div>
 <div class="container">
+    
     <div class="row">
         <div class="col-md-4">
             <h3 class="title-slide">REKOMENDASI</h3>
         </div>
     </div>
-      <div class="row">
+    <div class="row">
         <div class="col-md-12">
             <div id="slider1" class="slider">
                 <ul id="recommended">
-                    <li class="book-shadow"><img src="" alt=""></li>
+                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
+                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
+                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
+                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
+                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
                 </ul>
             </div>
             <div class="bkn bkn-prev" onclick="book.prev('#slider1')"></div>
             <div class="bkn bkn-next" onclick="book.next('#slider1')"></div>
             <hr style="margin-bottom:0px">
-      </div>
+        </div>
     </div>
     
     <div class="row">
@@ -55,17 +60,21 @@
             <h3 class="title-slide">POPULER</h3>
         </div>
     </div>
-      <div class="row">
+    <div class="row">
         <div class="col-md-12">
             <div id="slider2" class="slider">
                 <ul id="popular">
-                    <li class="book-shadow"><img src="" alt=""></li>
+                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
+                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
+                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
+                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
+                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
                 </ul>
             </div>
             <div class="bkn bkn-prev" onclick="book.prev('#slider2')"></div>
             <div class="bkn bkn-next" onclick="book.next('#slider2')"></div>
             <hr style="margin-bottom:0px">
-      </div>
+        </div>
     </div>
     
     <div class="row">
@@ -77,7 +86,11 @@
         <div class="col-md-12">
             <div id="slider3" class="slider">
                 <ul id="newbook">
-                    <li class="book-shadow"><img src="" alt=""></li>
+                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
+                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
+                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
+                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
+                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
                 </ul>
             </div>
             <div class="bkn bkn-prev" onclick="book.prev('#slider3')"></div>
@@ -85,7 +98,6 @@
       </div>
     </div>
 </div>
-<script src="js/angular.min.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/lemmon-slider.js"></script>
@@ -132,6 +144,41 @@
             });
             $('#newbook').html(html);
             book.slider('div#slider3');
+        });
+        //menu
+        book.json({
+            url : base_url+"/categories/top_categories?client_id="+client,
+            type : "GET",
+            dataType : "json"
+        }).success(function(data){
+            var obj = [];
+            var lenghtObj = Math.round(main.lenghtObject(data.data)/9);
+            for(t=0; t<lenghtObj; t++){
+                obj[t] = [];
+            }
+            var i = 0;
+            var j = 0;
+            $.each(data.data,function(k,v){
+                if(i < 9){
+                    obj[j][i] = '<li><a href="/category/'+v.Category.id+'">'+v.Category.name+'</a></li>';
+                    i++;
+                }
+                else{
+                    i = 0;
+                    j++;   
+                }
+            });
+            for(var a = 0; a < lenghtObj; a++){
+                var b = a + 1;
+                var html = "";
+                for(var k = 0; k < 9; k++){
+                    html += obj[a][k];
+                }
+                $("#top-menu"+b).html(html);
+                console.log(html);
+            }
+            //$('#recommended').html(html);
+            book.slider('div#slider1');
         });
     }); 
 </script>
