@@ -1,6 +1,7 @@
 module.exports = function(app,port,superagent,async,base_url,client,fs,secret){
 
     app.get('/',function(req, res){
+        console.log(req.session.name);
         return res.render('index',{"title":"Moco Store"});
     });
     
@@ -18,6 +19,10 @@ module.exports = function(app,port,superagent,async,base_url,client,fs,secret){
         return res.render('bookDetail',{"title":"Moco Store"}); 
     });
     
+    app.get('/user',function(req, res){
+        return res.render('user',{"title":"Moco Store"}); 
+    });
+    
     app.post('/signup',function(req, res){
         superagent.post(base_url+"/users/signup")
         .send({client_id : client,
@@ -30,5 +35,9 @@ module.exports = function(app,port,superagent,async,base_url,client,fs,secret){
         .end(function(err,data){
             return res.send(data.text);
         });
+    });
+    app.get('/ses',function(req, res){
+        req.session.name = "ibnu";
+        return res.send(req.session.name);
     });
 };

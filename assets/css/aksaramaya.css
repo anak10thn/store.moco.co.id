@@ -76,8 +76,10 @@ a{
 
 /*thumb book*/
 .thumb-book    { overflow:hidden; position:relative; padding: 0 0 0 70px; }
-.thumb-book ul { margin:0; padding:0;}
-.thumb-book li { float:left; margin:20px 55px 10px 0; list-style:none; }
+.thumb-book-user    { overflow:hidden; position:relative; padding: 0 0 0 0px; }
+.thumb-book ul,.thumb-book-user ul { margin:0; padding:0;}
+.thumb-book li{ float:left; margin:20px 55px 10px 0; list-style:none; }
+.thumb-book-user li { float:left; margin:20px 15px 10px 15px; list-style:none; }
 
 /* IE6 issues */
 .slider ul { width:100%;}
@@ -537,8 +539,21 @@ a{
     height: 50px;
     -webkit-border-radius: 30px; /* Saf3+, Chrome */
     border-radius: 30px; /* Opera 10.5, IE 9 */
-    /*-moz-border-radius: 30px; Disabled for FF1+ */
+    -moz-border-radius: 30px; Disabled for FF1+ */
     margin-right:10px;
+}
+
+.avatar-frame-user img{
+    border: 3px solid rgba(164,164,164,.5);
+    width: 100%;
+    height: 100%;
+    -webkit-border-radius: 100%; /* Saf3+, Chrome */
+    border-radius: 100%; /* Opera 10.5, IE 9 */
+    -moz-border-radius: 100%; Disabled for FF1+ */
+}
+
+#user-info{
+    margin: 20px 50px 20px 50px;
 }
 
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
@@ -795,6 +810,29 @@ h3.title-slide{
 h3.title-content{
     font-family: 'signikaregular';
     color:#fff;
+}
+
+h3.name{
+    font-family: 'signikabold';
+    color:#555;
+}
+
+h3.interest,h3.balance{
+    font-family: 'signikabold';
+    color:#555;
+    font-size:20px;
+}
+
+h5.name,h5.interest{
+    font-family: 'signikaregular';
+    color:#9a9a9a;
+}
+
+h1.balance{
+    font-family: 'signikaregular';
+    color:#9a9a9a;
+    font-size:50px;
+    text-align:center;
 }
 
 h4.foot{
