@@ -141,10 +141,11 @@
         }).success(function(data){
             var html = "";
             $.each(data.data,function(){
-                html += '<li class="book-shadow"><img src="'+this.Book.cover+'" alt=""></li>';
+                html += '<li class="book-shadow" id="btn-book" class="btn btn-lg btn-danger" data-toggle="popover" title="" data-content="And heres very engaging. right?" data-original-title="A Title"><img src="'+this.Book.cover+'" alt=""></li>';
             });
             $('#recommended').html(html);
             book.slider('div#slider1');
+            $('#btn-book').popover();
         });
         
         //popular

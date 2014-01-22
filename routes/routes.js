@@ -13,17 +13,27 @@ module.exports = function(app,port,superagent,async,base_url,client,fs,secret){
     });
     
     app.get('/category',function(req, res){
-      var url_data = "http://localhost:"+port+"/content/index.json";
-      superagent.get(url_data)
-        .set({  Accept: 'application/json' })
-        .end(function(e, storifyResponse){  
-          return res.render('category',{"title":"Moco Store"});   
-        })
-    
+        if(!req.session.login){
+            var login = "";
+            var user = "";
+        }
+        else{
+            var login = req.session.login;
+            var user = req.session.user;
+        }
+        return res.render('category',{"title":"Moco Store","login":login,"user":user});       
     });
     
     app.get('/detail',function(req, res){
-        return res.render('bookDetail',{"title":"Moco Store"}); 
+        if(!req.session.login){
+            var login = "";
+            var user = "";
+        }
+        else{
+            var login = req.session.login;
+            var user = req.session.user;
+        }
+        return res.render('bookDetail',{"title":"Moco Store","login":login,"user":user}); 
     });
     
     app.get('/user',function(req, res){
