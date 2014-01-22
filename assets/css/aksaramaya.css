@@ -594,9 +594,10 @@ ul.dropdown-menu.menu-login:before {
 }
 
 .book-shadow{
-  position:relative;
-  box-shadow: 1px 3px 10px rgba(0,0,0,.5);
-  width:155px;
+    position:relative;
+    box-shadow: 1px 3px 10px rgba(0,0,0,.5);
+    width:155px;
+    cursor:pointer;
 }
 .book-shadow:before{
 background: -moz-linear-gradient(left,  rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.5) 11%, rgba(0,0,0,0.2) 36%, rgba(0,0,0,0.1) 53%, rgba(0,0,0,0) 76%, rgba(0,0,0,0) 100%); /* FF3.6+ */
