@@ -50,28 +50,59 @@
       <div class="row">
         <div class="col-md-12">
             <div id="" class="thumb-book">
-                <ul>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
+                <ul id="dump_book">
+                    
                 </ul>
             </div>
       </div>
     </div>
 </div>
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/aksaramaya.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/aksaramaya.js"></script>
+<script>
+$(document).ready(function(){
+    var bookdata = <%- JSON.stringify(data) -%>;
+    var dump_book = "";
+    $.each(bookdata.data,function(){
+        console.log(this);
+        dump_book += '<li class="book-shadow"><img src="'+this.Book.cover+'" alt=""></li>';
+    });
+    $('#dump_book').html(dump_book);
+    //menu
+    book.json({
+        url : base_url+"/categories/top_categories?client_id="+client,
+        type : "GET",
+        dataType : "json"
+    }).success(function(data){
+        var obj = [];
+        var lenghtObj = Math.round(main.lenghtObject(data.data)/9);
+        for(t=0; t<lenghtObj; t++){
+            obj[t] = [];
+        }
+        var i = 0;
+        var j = 0;
+        $.each(data.data,function(k,v){
+            if(i < 9){
+                obj[j][i] = '<li><a href="/category/'+v.Category.id+'">'+v.Category.name+'</a></li>';
+                i++;
+            }
+            else{
+                i = 0;
+                j++;   
+            }
+        });
+        for(var a = 0; a < lenghtObj; a++){
+            var b = a + 1;
+            var html = "";
+            for(var k = 0; k < 9; k++){
+                html += obj[a][k];
+            }
+            $("#top-menu"+b).html(html);
+            console.log(html);
+        }
+        //$('#recommended').html(html);
+    });
+});
+</script>
 

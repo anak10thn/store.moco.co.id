@@ -1,5 +1,6 @@
 module.exports = function(app,port,superagent,async,base_url,client,fs,secret){
-
+    var fake_token = '2c61911ad20356410b9c4551ddc93907abd492d0';
+    
     app.get('/',function(req, res){
         if(!req.session.login){
             var login = "";
@@ -12,7 +13,8 @@ module.exports = function(app,port,superagent,async,base_url,client,fs,secret){
         return res.render('index',{"title":"Moco Store","login":login,"user":user});
     });
     
-    app.get('/category',function(req, res){
+    app.get('/category/:id',function(req, res){
+        var id = req.params.id;
         if(!req.session.login){
             var login = "";
             var user = "";
@@ -21,7 +23,10 @@ module.exports = function(app,port,superagent,async,base_url,client,fs,secret){
             var login = req.session.login;
             var user = req.session.user;
         }
-        return res.render('category',{"title":"Moco Store","login":login,"user":user});       
+        superagent.post(base_url+"/books/recommended?access_token="+fake_token+"&client_id="+client+"&per_page=10&category_ids="+id)
+        .end(function(err,data){
+            return res.render('category',{"title":"Moco Store","login":login,"user":user,"data":data.body.data});
+        });       
     });
     
     app.get('/detail',function(req, res){
