@@ -66,7 +66,6 @@ $(function(){
                 html += obj[a][k];
             }
             $("#top-menu"+b).html(html);
-            console.log(html);
         }
     });
 });
