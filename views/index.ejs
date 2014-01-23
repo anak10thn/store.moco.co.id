@@ -160,10 +160,10 @@ Banyak orang yang berjasa dalam penuntasan buku ini. Dengan buku ini pula kami p
         </div>
     </div>
 </div>
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/lemmon-slider.js"></script>
-<script src="js/aksaramaya.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/lemmon-slider.js"></script>
+<script src="/js/aksaramaya.js"></script>
 <script>
     $(document).ready(function(){
         $("form#signup").submit(function(){
@@ -202,7 +202,7 @@ Banyak orang yang berjasa dalam penuntasan buku ini. Dengan buku ini pula kami p
         }).success(function(data){
             var html = "";
             $.each(data.data,function(){
-                html += '<li class="book-shadow"  id="btn-book" class="btn btn-lg btn-danger" data-toggle="popover" title="" data-content="'+this.Book.authors+'" data-trigger="hover" data-html="true" data-original-title="'+this.Book.title+'" onclick="book.desc(\'1\')"><img src="'+this.Book.cover+'" alt=""></li>';
+                html += '<li class="book-shadow"  id="btn-book" class="btn btn-lg btn-danger" data-toggle="popover" title="" data-content="'+this.Book.authors+'" data-trigger="hover" data-html="true" data-original-title="'+this.Book.title+'" onclick="book.detail('+this.Book.id+')"><img src="'+this.Book.cover+'" alt=""></li>';
             });
             $('#recommended').html(html);
             book.slider('div#slider1');
@@ -237,7 +237,7 @@ Banyak orang yang berjasa dalam penuntasan buku ini. Dengan buku ini pula kami p
             console.log(data.data);
             var html = "";
             $.each(data.data,function(){
-                html += '<li class="book-shadow"  id="btn-book" class="btn btn-lg btn-danger" data-toggle="popover" title="" data-content="'+this.Book.authors+'" data-trigger="hover" data-html="true" data-original-title="'+this.Book.title+'"><img src="'+this.Book.cover+'" alt=""></li>';
+                html += '<li class="book-shadow"  id="btn-book" class="btn btn-lg btn-danger" data-toggle="popover" title="" data-content="'+this.Book.authors+'" data-trigger="hover" data-html="true" data-original-title="'+this.Book.title+'"><img src="'+this.Book.cover+'" alt="" onclick="book.detail('+this.Book.id+')"></li>';
             });
             $('#popular').html(html);
             book.slider('div#slider2');
@@ -272,7 +272,7 @@ Banyak orang yang berjasa dalam penuntasan buku ini. Dengan buku ini pula kami p
         }).success(function(data){
             var html = "";
             $.each(data.data,function(){
-                html += '<li class="book-shadow"  id="btn-book" class="btn btn-lg btn-danger" data-toggle="popover" title="" data-content="'+this.Book.authors+'" data-trigger="hover" data-html="true" data-original-title="'+this.Book.title+'"><img src="'+this.Book.cover+'" alt=""></li>';
+                html += '<li class="book-shadow"  id="btn-book" class="btn btn-lg btn-danger" data-toggle="popover" title="" data-content="'+this.Book.authors+'" data-trigger="hover" data-html="true" data-original-title="'+this.Book.title+'"><img src="'+this.Book.cover+'" alt="" onclick="book.detail('+this.Book.id+')"></li>';
             });
             $('#newbook').html(html);
             book.slider('div#slider3');

@@ -12,6 +12,18 @@
         </div>
     </div>
     <div class="row">
+        <div class="col-md-3">
+            <h3 class="interest">
+                <a href="#" class="selector-shelf active" id="collection" onclick="coll()"><i class="fa fa-list-ul fa-lg"></i> Collections</a></h3>
+        </div>
+        <div class="col-md-3">
+            <h3 class="interest"><a href="#" class="selector-shelf" id="wishlist" onclick="wish()"><i class="fa fa-heart-o fa-lg"></i> Wishlist</a></h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 devider-selector" id="collection-selector" style="border-top:2px solid #d9d9d9;margin:10px 10px 20px 10px"></div>
+    </div>
+    <div class="row" >
         <div class="col-md-12">
             <h5 class="dropdown menu pull-left" style="">
                       <a href="#" class="dropdown-toggle " data-toggle="dropdown">
@@ -21,7 +33,7 @@
                           </div>
                           </div>
                         </a>
-                      <ul class="dropdown-menu" style="border-radius:6px;">
+                      <!--<ul class="dropdown-menu" style="border-radius:6px;">
                         <li><a href="#">Action</a></li>
                         <li><a href="#">Another action</a></li>
                         <li><a href="#">Something else here</a></li>
@@ -29,7 +41,7 @@
                         <li class="dropdown-header">Nav header</li>
                         <li><a href="#">Separated link</a></li>
                         <li><a href="#">One more separated link</a></li>
-                      </ul>
+                      </ul>-->
             </h5>
             <h5 class="pull-right" style="">
                 <a href="#" class="dropdown-toggle " data-toggle="dropdown">
@@ -39,7 +51,7 @@
                       </div>
                       </div>
                     </a>
-                  <ul class="dropdown-menu" style="border-radius:6px;">
+                  <!--<ul class="dropdown-menu" style="border-radius:6px;">
                     <li><a href="#">Action</a></li>
                     <li><a href="#">Another action</a></li>
                     <li><a href="#">Something else here</a></li>
@@ -47,15 +59,14 @@
                     <li class="dropdown-header">Nav header</li>
                     <li><a href="#">Separated link</a></li>
                     <li><a href="#">One more separated link</a></li>
-                  </ul>
+                  </ul>-->
             </h5>
         </div>
     </div>
       <div class="row">
         <div class="col-md-12">
             <div id="" class="thumb-book-user">
-                <ul>
-                    <center>Data tidak ditemukan.</center>
+                <ul id="dumpbook">
                     <!--<li class="book-shadow"><img src="img/bookex.png" alt=""></li>
                     <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
                     <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
@@ -113,24 +124,64 @@
 </div>
     
 </div>
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/lemmon-slider.js"></script>
-<script src="js/aksaramaya.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/lemmon-slider.js"></script>
+<script src="/js/aksaramaya.js"></script>
 <script>
-    $(document).ready(function(){
-        var token = '<%=login.access_token%>';
+    function coll(){
         book.json({
-            url : base_url+"/items?client_id="+client+"&access_token="+token,
+            url : "/collection",
             type : "GET",
-            dataType : "json"
-        }).success(function(data){
+            dataType : "json",
+            beforeSend : function(){
+                $('#dumpbook').html('<h3><center><i class="fa fa-refresh fa-spin"></i> Loading...</center></h3>');
+            }
+        })
+        .success(function(data){
             if(data.meta.code == 200){
-                
+                var html = "";
+                $.each(data.data,function(){
+                html += '<li class="book-shadow" id="btn-book" class="btn btn-lg btn-danger" data-toggle="popover" title="" data-content="'+this.Book.authors+'" data-trigger="hover" data-html="true" data-original-title="'+this.Book.title+'"><img src="'+this.Book.cover+'" alt="" onclick="book.detail('+this.Book.id+')"></li>';
+                });
+                $('#dumpbook').html(html);
             }
             else{
-                
+                var html = '<center>Anda belum menambahkan buku ke collection.</center>';
+                $('#dumpbook').html(html);
             }
+        });
+    }
+    function wish(){
+        book.json({
+            url : "/wishlist",
+            type : "GET",
+            dataType : "json",
+            beforeSend : function(){
+                $('#dumpbook').html('<h3><center><i class="fa fa-refresh fa-spin"></i> Loading...</center></h3>');
+            }
+        })
+        .success(function(data){
+            if(data.meta.code == 200){
+                var html = "";
+                $.each(data.data,function(){
+                html += '<li class="book-shadow" id="btn-book" class="btn btn-lg btn-danger" data-toggle="popover" title="" data-content="'+this.Book.authors+'" data-trigger="hover" data-html="true" data-original-title="'+this.Book.title+'"><img src="'+this.Book.cover+'" alt="" onclick="book.detail('+this.Book.id+')"></li>';
+                });
+                $('#dumpbook').html(html);
+            }
+            else{
+                var html = '<center>Anda belum menambahkan buku ke wishlist.</center>';
+                $('#dumpbook').html(html);
+            }
+        });
+    }
+    $(document).ready(function(){
+        coll();
+        $('.selector-shelf').click(function(){
+            $('.selector-shelf').removeClass('active');
+            $(this).addClass('active');
+            var id = $(this).attr('id');
+            $('.devider-selector').attr('id',id+'-selector');
         });
     }); 
 </script>

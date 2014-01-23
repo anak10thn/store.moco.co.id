@@ -11,24 +11,24 @@
             <div class="col-md-1"></div>
             <div class="col-md-3">
                 <div class="book-shadow-detail">
-                    <img src="http://store.aksaramaya.com/publication/book/cover/8b4e1be0072629dd0a6df5332817b9_175x250.png">
+                    <img src="<%=data.Book.cover%>">
                 </div>
             </div>
             <div class="col-md-5">
                 <p>
-                <h3 style="margin-top:0">Best teacher menjadi guru Best teacher menjadi guru Best...</h3>
-                <h4 style="font-family: 'signikalight';color:#d7254a;margin-bottom:30px;">by AKHMED MUHAIMIN ASSETS</h4>
+                <h3 style="margin-top:0"><%=data.Book.title%></h3>
+                <h4 style="font-family: 'signikalight';color:#d7254a;margin-bottom:30px;">by <%=data.Book.authors%></h4>
                 <p>
                     <h4 style="margin-bottom:0px;">ISBN</h4>
-                    <p style="color:#999">9090868-97575980</p>
+                    <p style="color:#999"><%=data.Book.isbn%></p>
                 </p>
                 <p>
                     <h4 style="margin-bottom:0px;">PUBLISHER</h4>
-                    <p style="color:#999">Rockcrot</p>
+                    <p style="color:#999"><%=data.Publisher.name%></p>
                 </p>
                 <p>
                     <h4 style="margin-bottom:0px;">PUBLICATION DATE</h4>
-                    <p style="color:#999">11 September 2011</p>
+                    <p style="color:#999"><%=data.Book.published_date%></p>
                 </p>
                 <p>
                     <h4 style="margin-bottom:0px;">PAGES</h4>
@@ -47,8 +47,8 @@
         <div class="col-md-1"></div>
         <div class="col-md-10">
             <h4 style="margin-bottom:20px" class="pull-left">Share on :</h4>
-            <img src="img/Tw.png" class="pull-right" width="40px">
-            <img src="img/FB.png" class="pull-right" width="40px" style="margin-right: 30px;">
+            <img src="/img/Tw.png" class="pull-right" width="40px">
+            <img src="/img/FB.png" class="pull-right" width="40px" style="margin-right: 30px;">
         </div>
         <div class="col-md-1"></div>
     </div>
@@ -64,15 +64,7 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-10">
-                <p>
-                Mengelola pendidikan bukanlah persoalan mudah, dibutuhkan pemikiran dan analisis mendalam agar pendidikan yang dilaksanakan tepat sasaran dan sesuai dengan tujuan yang ditetapkan. Secara konseptual-filosofis pendidikan nasional digali dari identitas, karakteristik dan khazanah budaya yang dimilikinya, sehingga pendidikan yang diterapkan tidak keluar dari akar sejarahnya.
-
-Sedangkan dalam praksis-aplikatif pendidikan dikelola dengan menajemen yang baik agar konsep-filosofis pendidikan tersebut dapat dibumikan secara efektif, efisien dan produktif. Tanpa sistem pengelolaan (manajemen) pendidikan yang baik, konsep-konsep tersebut tidak mempunyai banyak arti. Oleh karena itu, manajemen mempunyai peran sangat signifikan dalam pelaksanaan pendidikan agar konsep dan tujuan pendidikan dapat tercapai sebagaimana yang diinginkan.
-
-Penerbitan buku ini dimaksudkan sebagai referensi dan panduan teoritik-aplikatif dalam pengelolaan pendidikan khususnya di sekolah/madrasah. Selain sebagai pengkayaan khazanah kepustakaan manajemen pendidikan yang masih sangat terbatas di Indonesia.
-
-Banyak orang yang berjasa dalam penuntasan buku ini. Dengan buku ini pula kami persembahkan sebagai wujud dari sebuah cita-cita dan pengharapan dari doa dan sujud malamnya ummi-abi, kakak, adik dan permata hati yang memberi energi untuk terus berjuang, berjihad dan belajar hingga ujung waktu nanti.
-                </p>
+                <%- data.Book.description -%>
             </div>
         </div>
     </div>
@@ -83,16 +75,16 @@ Banyak orang yang berjasa dalam penuntasan buku ini. Dengan buku ini pula kami p
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-10">
-            <h4 style="margin-bottom:20px;margin-top:20px" class="pull-left">Review <i style="font-style:normal;color:#d7254a">(14)</i></h4>
+            <h4 style="margin-bottom:20px;margin-top:20px" class="pull-left">Review <i style="font-style:normal;color:#d7254a">(0)</i></h4>
         </div>
     </div>
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-10">
             <!--media-->
-              <div class="media">
+              <!--<div class="media">
                 <a class="pull-left" href="#">
-                  <div class="avatar-frame"><img src="img/avatar.jpg"></div>
+                  <div class="avatar-frame"><img src="/img/avatar.jpg"></div>
                 </a>
                 <div class="media-body">
                   <h4 class="media-heading">Media heading <i class="attr-font">12 hour ego</i></h4>
@@ -106,7 +98,7 @@ Banyak orang yang berjasa dalam penuntasan buku ini. Dengan buku ini pula kami p
               </div>
               <div class="media">
                 <a class="pull-left" href="#">
-                  <div class="avatar-frame"><img src="img/avatar.jpg"></div>
+                  <div class="avatar-frame"><img src="/img/avatar.jpg"></div>
                 </a>
                 <div class="media-body">
                   <h4 class="media-heading">Media heading <i class="attr-font">12 hour ego</i></h4>
@@ -118,7 +110,7 @@ Banyak orang yang berjasa dalam penuntasan buku ini. Dengan buku ini pula kami p
                 </p>
                 <div class="media">
                     <a class="pull-left" href="#">
-                      <div class="avatar-frame"><img src="img/avatar.jpg"></div>
+                      <div class="avatar-frame"><img src="/img/avatar.jpg"></div>
                     </a>
                     <div class="media-body">
                       <h4 class="media-heading">Nested media heading <i class="attr-font">12 hour ego</i></h4>
@@ -131,7 +123,7 @@ Banyak orang yang berjasa dalam penuntasan buku ini. Dengan buku ini pula kami p
                     </div>
                   </div>
                 </div>
-              </div>
+              </div>-->
             <!--media end-->
             <textarea class="form-control" rows="3" style="margin-top:20px;margin-bottom:10px"></textarea>
             <input type="submit" tabindex="100" value="POST" class="btn btn-ak-primary pull-right" name="wp-submit">
@@ -141,6 +133,6 @@ Banyak orang yang berjasa dalam penuntasan buku ini. Dengan buku ini pula kami p
 
 
 
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/aksaramaya.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/aksaramaya.js"></script>

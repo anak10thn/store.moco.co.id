@@ -84,9 +84,9 @@
                     <li>
                         <form method="post" action="/login" id="navloginform" name="loginform">
                             <label>
-                            <input type="text" name="username" id="username" placeholder="Username Or Email" tabindex="10" size="30" value="" class="input" id="user_login" name="log"></label>
+                            <input type="email" name="username" id="username" placeholder="Username Or Email" tabindex="10" size="30" value="" class="input" id="user_login" name="log" required></label>
                             <label style="margin-top:10px;">
-                            <input type="password" name="password" id="password" placeholder="Password"  tabindex="20" size="30" value="" class="input" id="user_pass" name="pwd"></label>
+                            <input type="password" name="password" id="password" placeholder="Password"  tabindex="20" size="30" value="" class="input" id="user_pass" name="pwd" required></label>
                             <label style="width:100px;">Forgot your password?</label> 
                             <input type="submit" tabindex="100" value="SIGN IN" class="btn btn-ak-primary" style="float:right" id="wp-submit" name="wp-submit">
                             <input type="hidden" value="" name="redirect_to">

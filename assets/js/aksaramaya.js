@@ -28,6 +28,9 @@ book = (function(){
         },
         json : function(data){
             return $.ajax(data);   
+        },
+        detail : function(id){
+            window.location.replace('/detail/'+id);   
         }
     }
 })();

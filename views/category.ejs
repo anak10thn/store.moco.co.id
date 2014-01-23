@@ -66,7 +66,7 @@ $(document).ready(function(){
     var dump_book = "";
     $.each(bookdata.data,function(){
         console.log(this);
-        dump_book += '<li class="book-shadow" id="btn-book" class="btn btn-lg btn-danger" data-toggle="popover" title="" data-content="'+this.Book.authors+'" data-trigger="hover" data-html="true" data-original-title="'+this.Book.title+'"><img src="'+this.Book.cover+'" alt=""></li>';
+        dump_book += '<li class="book-shadow" id="btn-book" class="btn btn-lg btn-danger" data-toggle="popover" title="" data-content="'+this.Book.authors+'" data-trigger="hover" data-html="true" data-original-title="'+this.Book.title+'" onclick="book.detail('+this.Book.id+')"><img src="'+this.Book.cover+'" alt=""></li>';
     });
     $('#dump_book').html(dump_book);
     var options = {

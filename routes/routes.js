@@ -49,16 +49,58 @@ module.exports = function(app,port,superagent,async,base_url,client,fs,secret){
         });       
     });
     
-    app.get('/detail',function(req, res){
+    app.get('/detail/:id',function(req, res){
+        var id = req.params.id;
         if(!req.session.login){
             var login = "";
             var user = "";
+            var user_token = fake_token;
         }
         else{
             var login = req.session.login;
             var user = req.session.user;
+            var user_token = req.session.token;
         }
-        return res.render('bookDetail',{"title":"Moco Store","login":login,"user":user}); 
+        superagent.get(base_url+"/books/detail?access_token="+user_token+"&client_id="+client+"&book_id="+id)
+        .end(function(err,data){
+            return res.render('bookDetail',{"title":"Moco Store","login":login,"user":user,"data":data.body.data});
+        });
+    });
+    
+    app.get('/collection',function(req, res){
+        var id = req.params.id;
+        if(!req.session.login){
+            var login = "";
+            var user = "";
+            var user_token = fake_token;
+        }
+        else{
+            var login = req.session.login;
+            var user = req.session.user;
+            var user_token = req.session.token;
+        }
+        superagent.get(base_url+"/items?access_token="+user_token+"&client_id="+client+"&book_id="+id)
+        .end(function(err,data){
+            return res.send(data.body);
+        });
+    });
+    
+    app.get('/wishlist',function(req, res){
+        var id = req.params.id;
+        if(!req.session.login){
+            var login = "";
+            var user = "";
+            var user_token = fake_token;
+        }
+        else{
+            var login = req.session.login;
+            var user = req.session.user;
+            var user_token = req.session.token;
+        }
+        superagent.get(base_url+"/wishlists/index?access_token="+user_token+"&client_id="+client+"&book_id="+id)
+        .end(function(err,data){
+            return res.send(data.body);
+        });
     });
     
     app.get('/user',function(req, res){
