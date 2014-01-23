@@ -68,36 +68,58 @@ module.exports = function(app,port,superagent,async,base_url,client,fs,secret){
     });
     
     app.get('/collection',function(req, res){
-        var id = req.params.id;
         if(!req.session.login){
-            var login = "";
-            var user = "";
-            var user_token = fake_token;
+            return res.redirect('/');
         }
         else{
             var login = req.session.login;
             var user = req.session.user;
             var user_token = req.session.token;
         }
-        superagent.get(base_url+"/items?access_token="+user_token+"&client_id="+client+"&book_id="+id)
+        superagent.get(base_url+"/items?access_token="+user_token+"&client_id="+client)
         .end(function(err,data){
             return res.send(data.body);
         });
     });
     
     app.get('/wishlist',function(req, res){
-        var id = req.params.id;
         if(!req.session.login){
-            var login = "";
-            var user = "";
-            var user_token = fake_token;
+            return res.redirect('/');
         }
         else{
             var login = req.session.login;
             var user = req.session.user;
             var user_token = req.session.token;
         }
-        superagent.get(base_url+"/wishlists/index?access_token="+user_token+"&client_id="+client+"&book_id="+id)
+        superagent.get(base_url+"/wishlists/index?access_token="+user_token+"&client_id="+client)
+        .end(function(err,data){
+            return res.send(data.body);
+        });
+    });
+    
+    app.get('/wishlist/add/:id',function(req, res){
+        var id = req.params.id;
+        if(!req.session.login){
+            var respon = {
+                              "meta": {
+                                "code": 404,
+                                "error_message": "Tidak ada data"
+                              }
+                            };
+            return res.send(respon);
+        }
+        else{
+            var login = req.session.login;
+            var user = req.session.user;
+            var user_token = req.session.token;
+        }
+        superagent.post(base_url+"/wishlists/add")
+        .send({client_id : client,
+               client_secret : secret,
+               device_id : 1,
+               access_token : user_token,
+               book_id : id
+              })
         .end(function(err,data){
             return res.send(data.body);
         });

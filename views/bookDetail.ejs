@@ -36,7 +36,7 @@
                 </p>
                 <p>
                     <button type="submit" class="btn btn-ak-red" style="width:180px;height:40px;margin-right:50px;margin-top:10px;">BUY/RENT</button>
-                    <button type="submit" class="btn btn-ak-red" style="width:180px;height:40px;margin-top:10px;">ADD TO WISHLIST</button>
+                    <button type="submit" onclick="addws('<%=data.Book.id%>')" class="btn btn-ak-red" style="width:180px;height:40px;margin-top:10px;"><i id="ws"></i> ADD TO WISHLIST</button>
                 </p>
             </div>
         </div>
@@ -136,3 +136,33 @@
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/aksaramaya.js"></script>
+<script>
+function addws(id){
+    book.json({
+        url : "/wishlist/add/"+id,
+        type : "GET",
+        data : $("#signup").serialize(),
+        beforeSend: function(){
+            $('#ws').addClass('fa fa-refresh fa-spin');
+        }
+    })
+    .success(function(data){
+        var dt = data;
+        if(dt.meta.code == 200){
+            alert(dt.meta.confirm);   
+        }
+        else{
+            var m_error = dt.meta.error_message;
+            console.log(m_error.length);
+            if(m_error.isArray){
+                var error = m_error.join(",");
+            }
+            else {
+                var error = m_error;
+            }
+            alert(error);
+        }
+        $('#ws').removeClass('fa fa-refresh fa-spin');
+    });   
+}
+</script>

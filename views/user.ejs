@@ -141,10 +141,30 @@
         .success(function(data){
             if(data.meta.code == 200){
                 var html = "";
-                $.each(data.data,function(){
+                $.each(data.data.data,function(){
                 html += '<li class="book-shadow" id="btn-book" class="btn btn-lg btn-danger" data-toggle="popover" title="" data-content="'+this.Book.authors+'" data-trigger="hover" data-html="true" data-original-title="'+this.Book.title+'"><img src="'+this.Book.cover+'" alt="" onclick="book.detail('+this.Book.id+')"></li>';
                 });
                 $('#dumpbook').html(html);
+                var options = {
+                placement: function (context, source) {
+                        var position = $(source).position();
+                
+                        if (position.left > 515) {
+                            return "left";
+                        }
+                
+                        if (position.left < 515) {
+                            return "right";
+                        }
+                
+                        if (position.top < 110){
+                            return "bottom";
+                        }
+                
+                        return "top";
+                    }
+                };
+                $('.book-shadow').popover(options);
             }
             else{
                 var html = '<center>Anda belum menambahkan buku ke collection.</center>';
@@ -164,10 +184,30 @@
         .success(function(data){
             if(data.meta.code == 200){
                 var html = "";
-                $.each(data.data,function(){
+                $.each(data.data.data,function(){
                 html += '<li class="book-shadow" id="btn-book" class="btn btn-lg btn-danger" data-toggle="popover" title="" data-content="'+this.Book.authors+'" data-trigger="hover" data-html="true" data-original-title="'+this.Book.title+'"><img src="'+this.Book.cover+'" alt="" onclick="book.detail('+this.Book.id+')"></li>';
                 });
                 $('#dumpbook').html(html);
+                var options = {
+                placement: function (context, source) {
+                        var position = $(source).position();
+                
+                        if (position.left > 515) {
+                            return "left";
+                        }
+                
+                        if (position.left < 515) {
+                            return "right";
+                        }
+                
+                        if (position.top < 110){
+                            return "bottom";
+                        }
+                
+                        return "top";
+                    }
+                };
+                $('.book-shadow').popover(options);
             }
             else{
                 var html = '<center>Anda belum menambahkan buku ke wishlist.</center>';
