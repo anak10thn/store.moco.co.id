@@ -55,6 +55,8 @@
         <div class="col-md-12">
             <div id="" class="thumb-book-user">
                 <ul>
+                    <center>Data tidak ditemukan.</center>
+                    <!--<li class="book-shadow"><img src="img/bookex.png" alt=""></li>
                     <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
                     <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
                     <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
@@ -68,8 +70,7 @@
                     <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
                     <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
                     <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
-                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>
+                    <li class="book-shadow"><img src="img/bookex.png" alt=""></li>-->
                 </ul>
             </div>
       </div>
@@ -118,41 +119,18 @@
 <script src="js/aksaramaya.js"></script>
 <script>
     $(document).ready(function(){
-        alert('<%=login.access_token%>');
-        //menu
+        var token = '<%=login.access_token%>';
         book.json({
-            url : base_url+"/categories/top_categories?client_id="+client,
+            url : base_url+"/items?client_id="+client+"&access_token="+token,
             type : "GET",
             dataType : "json"
         }).success(function(data){
-            var obj = [];
-            var lenghtObj = Math.round(main.lenghtObject(data.data)/9);
-            for(t=0; t<lenghtObj; t++){
-                obj[t] = [];
+            if(data.meta.code == 200){
+                
             }
-            var i = 0;
-            var j = 0;
-            $.each(data.data,function(k,v){
-                if(i < 9){
-                    obj[j][i] = '<li><a href="/category/'+v.Category.id+'">'+v.Category.name+'</a></li>';
-                    i++;
-                }
-                else{
-                    i = 0;
-                    j++;   
-                }
-            });
-            for(var a = 0; a < lenghtObj; a++){
-                var b = a + 1;
-                var html = "";
-                for(var k = 0; k < 9; k++){
-                    html += obj[a][k];
-                }
-                $("#top-menu"+b).html(html);
-                console.log(html);
+            else{
+                
             }
-            //$('#recommended').html(html);
-            book.slider('div#slider1');
         });
     }); 
 </script>

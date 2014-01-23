@@ -18,12 +18,32 @@ module.exports = function(app,port,superagent,async,base_url,client,fs,secret){
         if(!req.session.login){
             var login = "";
             var user = "";
+            var user_token = fake_token;
         }
         else{
             var login = req.session.login;
             var user = req.session.user;
+            var user_token = req.session.token;
         }
-        superagent.post(base_url+"/books/recommended?access_token="+fake_token+"&client_id="+client+"&per_page=10&category_ids="+id)
+        superagent.post(base_url+"/books/recommended?access_token="+user_token+"&client_id="+client+"&per_page=10&category_ids="+id)
+        .end(function(err,data){
+            return res.render('category',{"title":"Moco Store","login":login,"user":user,"data":data.body.data});
+        });       
+    });
+    
+    app.post('/search',function(req, res){
+        var query = req.body.query;
+        if(!req.session.login){
+            var login = "";
+            var user = "";
+            var user_token = fake_token;
+        }
+        else{
+            var login = req.session.login;
+            var user = req.session.user;
+            var user_token = req.session.token;
+        }
+        superagent.post(base_url+"/books/search?access_token="+user_token+"&client_id="+client+"&per_page=10000&q="+query)
         .end(function(err,data){
             return res.render('category',{"title":"Moco Store","login":login,"user":user,"data":data.body.data});
         });       
@@ -79,6 +99,7 @@ module.exports = function(app,port,superagent,async,base_url,client,fs,secret){
             var code = JSON.parse(data.text);
             if(code.meta.code == 200){
                 req.session.login = code.data;
+                req.session.token = code.data.access_token;
                 superagent.get(base_url+"/users/profile?access_token="+code.data.access_token)
                 .end(function(err,data){
                     req.session.user = JSON.parse(data.text).data.User;
@@ -95,5 +116,10 @@ module.exports = function(app,port,superagent,async,base_url,client,fs,secret){
         console.log(JSON.stringify(req.session.login));
         console.log(JSON.stringify(req.session.user));
         return false;
+    });
+    
+    app.get('/logout',function(req, res){
+        req.session.destroy();
+        return res.redirect('/');
     });
 };

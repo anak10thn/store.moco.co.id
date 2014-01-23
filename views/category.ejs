@@ -66,43 +66,29 @@ $(document).ready(function(){
     var dump_book = "";
     $.each(bookdata.data,function(){
         console.log(this);
-        dump_book += '<li class="book-shadow"><img src="'+this.Book.cover+'" alt=""></li>';
+        dump_book += '<li class="book-shadow" id="btn-book" class="btn btn-lg btn-danger" data-toggle="popover" title="" data-content="'+this.Book.authors+'" data-trigger="hover" data-html="true" data-original-title="'+this.Book.title+'"><img src="'+this.Book.cover+'" alt=""></li>';
     });
     $('#dump_book').html(dump_book);
-    //menu
-    book.json({
-        url : base_url+"/categories/top_categories?client_id="+client,
-        type : "GET",
-        dataType : "json"
-    }).success(function(data){
-        var obj = [];
-        var lenghtObj = Math.round(main.lenghtObject(data.data)/9);
-        for(t=0; t<lenghtObj; t++){
-            obj[t] = [];
+    var options = {
+        placement: function (context, source) {
+            var position = $(source).position();
+    
+            if (position.left > 515) {
+                return "left";
+            }
+    
+            if (position.left < 515) {
+                return "right";
+            }
+    
+            if (position.top < 110){
+                return "bottom";
+            }
+    
+            return "top";
         }
-        var i = 0;
-        var j = 0;
-        $.each(data.data,function(k,v){
-            if(i < 9){
-                obj[j][i] = '<li><a href="/category/'+v.Category.id+'">'+v.Category.name+'</a></li>';
-                i++;
-            }
-            else{
-                i = 0;
-                j++;   
-            }
-        });
-        for(var a = 0; a < lenghtObj; a++){
-            var b = a + 1;
-            var html = "";
-            for(var k = 0; k < 9; k++){
-                html += obj[a][k];
-            }
-            $("#top-menu"+b).html(html);
-            console.log(html);
-        }
-        //$('#recommended').html(html);
-    });
+    };
+    $('.book-shadow').popover(options);
 });
 </script>
 
